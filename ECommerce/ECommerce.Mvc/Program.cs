@@ -1,7 +1,12 @@
+using ECommerce.Mvc;
+using Microsoft.AspNetCore.Mvc.Controllers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddSingleton<IControllerActivator>(new ECommerceControllerActivator());
 
 var app = builder.Build();
 
